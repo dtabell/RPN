@@ -1,0 +1,124 @@
+#
+# Physical Constants
+# http://physics.nist.gov/cuu/index.html
+#
+# The uncertainties (given in parentheses) indicate expected error in the last digits.
+#
+# 2006 CODATA recommended values
+#
+
+# ------------------------------------------------------------------------------------------
+#  name              value                       # (uncertainty) units
+#  RPN abbrev                                    # full name / units
+# ------------------------------------------------------------------------------------------
+
+## Universal
+
+c_light               2.99792458e8               # (exact) m.s^-1
+  c clight                                       # speed of light in vacuum /m.s^-1
+
+c_light_digits        2.99792458                 # (exact)
+  dot3                                           # "3" (speed of light in vacuum /1e8 m.s^-1)
+
+epsilon_o             8.85418781762038985054e-12 # (exact) F.m^-1 = C.V^-1.m^-1
+  eps epso                                       # permittivity of free space /F.m^-1
+
+epsilon_o_4pi         1.11265005605361843217e-10 # (exact) F.m^-1 = C.V^-1.m^-1
+  eps4pi epso4pi                                 # 4.pi.{permittivity of free space} /F.m^-1
+
+mu_o                  12.5663706143591729539e-7  # (exact) H.m^-1 = N.A^-2
+  mu muo                                         # permeability of free space /H.m^-1
+
+mu_o_ovr_4pi          1.00000000000000000000e-7  # (exact) H.m^-1 = N.A^-2
+  mu4pi muo4pi                                   # {permeability of free space} / 4.pi /H.m^-1
+
+gravitational_G       6.67428e-11                # (67) m^3.kg^-1.s^-2
+  G big_g                                        # gravitational constant /m^3.kg^-1.s^-2
+
+planck_h              6.62606896e-34             # (33) J.s
+  h hplanck                                      # Planck constant /J.s
+
+planck_h_bar          1.054571628e-34            # (53) J.s
+  hbar                                           # {Planck constant}/(2.pi) /J.s
+
+planck_h_ev           4.13566733e-15             # (10) eV.s
+  hev                                            # Planck constant /eV.s
+
+planck_hbar_ev        6.58211899e-16             # (16) eV.s
+  hbev hbrev hbarev                              # {Planck constant}/(2.pi) /eV.s
+
+
+## Electromagnetic
+
+bohr_magneton         927.400915e-26             # (23) J.T^-1
+  mu_b mu_bohr                                   # Bohr magneton /J.T^-1
+
+bohr_magneton_ev      5.7883817555e-5            # (79) eV.T^-1
+  mu_b_ev mu_bohr_ev                             # Bohr magneton /eV.T^-1
+
+elem_charge           1.602176487e-19            # (40) C
+  eq elemq                                       # elementary charge /C
+
+elem_charge_esu       4.80320427e-10             # (12) esu
+  eq_esu elemq_esu                               # elementary charge /esu
+
+
+## Atomic and nuclear
+
+alpha_mass            6.64465620e-27             # (33) kg
+  malpha                                         # alpha particle mass /kg
+
+alpha_restE           3727.379109e6              # (93) eV
+  mac2                                           # alpha particle rest energy /eV
+
+electron_G            1.15965218077e-3         # (26)
+  Ge Gelectron                                   # electron gyromagnetic anomaly
+
+electron_mass         9.10938215e-31             # (45) kg
+  me melectron                                   # electron mass /kg
+
+electron_restE        0.510998910e6              # (13) eV
+  mec2                                           # electron rest energy /eV
+
+electron_radius       2.8179402894e-15           # (58) m
+  eradius Re Relectron                           # classical electron radius /m
+
+fine_structure_a      7.2973525376e-3            # (50)
+  alpha                                          # fine-structure constant
+
+inv_fine_structure_a  137.035999679              # (94)
+  inv_alpha                                      # fine-structure constant
+
+muon_mass             1.88353130e-28             # (11) kg
+  mm mmuon                                       # muon mass /kg
+
+muon_restE            105.6583668e6              # (38) eV
+  mmc2                                           # muon rest energy /eV
+
+neutron_mass          1.674927211e-27            # (84) kg
+  mn mneutron                                    # neutron mass /kg
+
+neutron_restE         939.565346e6               # (23) eV
+  mnc2                                           # neutron rest energy /eV
+
+proton_G              1.792847356                # (23)
+  Gp Gproton                                     # proton gyromagnetic anomaly
+
+proton_mass           1.672621637e-27            # (83) kg
+  mp mproton                                     # proton mass /kg
+
+proton_restE          938.272013e6               # (23) eV
+  mpc2                                           # proton rest energy /eV
+
+
+## Physico-chemical
+
+avogadro_number       6.02214179e23              # (30) mol^-1
+  n_a avogadro                                   # Avogadro constant /mol^-1
+
+boltzmann_k           1.3806504e-23              # (24) J.K^-1
+  kb kboltzmann                                  # Boltzmann constant /J.K^-1
+
+boltzmann_k_ev        8.617343e-5                # (15) eV.K^-1
+  kbev                                           # Boltzmann constant /eV.K^-1
+

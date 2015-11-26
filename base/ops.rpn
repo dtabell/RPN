@@ -1,0 +1,237 @@
+#
+# basic arithmetic
+#
++            +
+-            -
+*            *
+/            /
+++           ++
+--           --
++++          +++
++-+          +-+
+tm+          tm+
+t+           tm+
+tm-          tm-
+t-           tm-
+inv          inv
+chs          chs
+neg          chs
+n            chs
+abs          abs
+sgn          sgn
+sign         sgn
+
+#
+# comparisons
+#
+<            <
+<=           <=
+==           ==
+>=           >=
+>            >
+
+#
+# powers and roots
+#
+sqr          sqr
+sq           sqr
+sqrt         sqrt
+pow          pow
+**           pow
+^            pow
+root         root
+rt           root
+
+#
+# number parts
+#
+ceil         ceil
+ceiling      ceil
+floor        floor
+flr          floor
+int          int
+frac         frac
+mod          mod
+|            mod
+
+#
+# combinatorial functions
+#
+fact         fact
+fct          fact
+!            fact
+binom        binom
+bin          binom
+choose       binom
+
+#
+# trigonometric functions
+#
+sin          sin
+cos          cos
+tan          tan
+asin         asin
+arcsin       asin
+acos         acos
+arccos       acos
+atan         atan
+arctan       atan
+atan2        atan2
+arctan2      atan2
+sinc         sinc
+
+#
+# hyperbolic functions
+#
+sinh         sinh
+cosh         cosh
+tanh         tanh
+asinh        asinh
+arcsinh      asinh
+acosh        acosh
+arccosh      acosh
+atanh        atanh
+arctanh      atanh
+
+#
+# exponential and logarithmic functions
+#
+ln           ln
+exp          exp
+ex           exp
+aln          exp
+log          log
+log10        log
+alog         alog
+dxp          alog
+tx           alog
+lg           lg
+log2         lg
+alog2        alog2
+twox         alog2
+logb         logb
+
+#
+# mathematical constants
+#
+eul          eul
+e            eul
+pi           pi
+twopi        twopi
+gr           gr
+golden_ratio gr
+
+#
+# unit conversions
+#
+d2r          d2r
+r2d          r2d
+d2dms        d2dms
+h2hms        d2dms
+dms2d        dms2d
+hms2h        dms2d
+g2r          g2r
+r2g          r2g
+ev2j         ev2j
+eV2J         ev2j
+j2ev         j2ev
+J2eV         j2ev
+
+#
+# functions and variables
+#
+clrfns       clrfns
+clrvar       clrvar
+readfns      readfns
+readvar      readvar
+
+#
+# stack manipulation
+#
+del          del
+x            del
+clr          clr
+clear        clr
+swap         swap
+sw           swap
+s            swap
+dup          dup
+d            dup
+dup2         dup2
+d2           dup2
+dupn         dupn
+dn           dupn
+fill         fill
+pick         pick
+pk           pick
+rot          rot
+rr           rot
+rotd         rotd
+rd           rotd
+rotn         rotn
+rrn          rotn
+roll         roll
+rev          rev
+revn         revn
+stk          stk
+stack        stk
+show         stk
+sh           stk
+ls           stk
+stk2         stk2
+stack2       stk2
+show2        stk2
+sh2          stk2
+ls2          stk2
+stkn         stkn
+stackn       stkn
+lsn          stkn
+
+#
+# modes
+#
+deg          deg
+dms          dms
+rad          rad
+grad         grad
+std          std
+fix          fix
+sci          sci
+eng          eng
+dsp          dsp
+display      dsp
+fussy        fussy
+sloppy       sloppy
+modes        modes
+
+#
+# help
+#
+help         help
+?            help
+??           ??
+????         ????
+?math        ?math
+?trig        ?trig
+?hyp         ?trig
+?exp         ?exp
+?log         ?exp
+?const       ?const
+?constant    ?const
+?conv        ?conv
+?conversion  ?conv
+?stack       ?stack
+?modes       ?modes
+?funcs       ?funcs
+?user        ?user
+?fns         ?funcs
+?vars        ?vars
+
+#
+# end
+#
+end          end
+exit         end
+quit         end
+bye          end
+

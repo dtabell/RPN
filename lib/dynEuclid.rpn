@@ -1,0 +1,120 @@
+#
+# functions that implement the dynamical Euclidean group
+#
+
+:fn:
+# map X(ang): xi yi li pxi pyi di ang xrot
+#        ===> xf yf lf pxf pyf df
+# RH rotation about the x axis
+# store local variables
+  '_ang' '_di' '_pyi' '_pxi' '_li' '_yi' '_xi'
+# evaluate trig functions
+  _ang cos '_cos' _ang sin '_sin'
+# evaluate pz-initial and pz-final
+  1 _di + sqr _pyi sqr - _pxi sqr - sqrt '_pzi'
+  _pzi _cos * _pyi _sin * - '_pzf'
+# evaluate map
+  _yi _pzf / _sin * _pxi * _xi +       # x-final
+  _yi _pzf / _pzi *                    # y-final
+  _yi _pzf / _sin * 1 _di + * _li +    # l-final
+  _pxi                                 # px-final
+  _pyi _cos * _pzi _sin * +            # py-final
+  _di                                  # d-final
+# delete local variables
+  (_ang,_di,_pyi,_pxi,_li,_yi,_xi,_cos,_sin,_pzi,_pzf)
+:xrot
+
+:fn:
+# map Y(ang): xi yi li pxi pyi di ang yrot
+#        ===> xf yf lf pxf pyf df
+# LH rotation about the y axis
+# store local variables
+  '_ang' '_di' '_pyi' '_pxi' '_li' '_yi' '_xi'
+# evaluate trig functions
+  _ang cos '_cos' _ang sin '_sin'
+# evaluate pz-initial and pz-final
+  1 _di + sqr _pyi sqr - _pxi sqr - sqrt '_pzi'
+  _pzi _cos * _pxi _sin * - '_pzf'
+# evaluate map
+  _xi _pzf / _pzi *                    # x-final
+  _xi _pzf / _sin * _pyi * _yi +       # y-final
+  _xi _pzf / _sin * 1 _di + * _li +    # l-final
+  _pxi _cos * _pzi _sin * +            # px-final
+  _pyi                                 # py-final
+  _di                                  # d-final
+# delete local variables
+  (_ang,_di,_pyi,_pxi,_li,_yi,_xi,_cos,_sin,_pzi,_pzf)
+:yrot
+
+:fn:
+# map Z(ang): xi yi li pxi pyi di ang zrot
+#        ===> xf yf lf pxf pyf df
+# RH rotation about the z axis
+# store local variables
+  '_ang' '_di' '_pyi' '_pxi' '_li' '_yi' '_xi'
+# evaluate trig functions
+  _ang cos '_cos' _ang sin '_sin'
+# evaluate map
+  _xi _cos * _yi _sin * +              # x-final
+  _yi _cos * _xi _sin * -              # y-final
+  _li                                  # l-final
+  _pxi _cos * _pyi _sin * +            # px-final
+  _pyi _cos * _pxi _sin * -            # py-final
+  _di                                  # d-final
+# delete local variables
+  (_ang,_di,_pyi,_pxi,_li,_yi,_xi,_cos,_sin)
+:zrot
+
+:fn:
+# map Tx(dx): xi yi li pxi pyi di dx xtran
+#        ===> xf yf lf pxf pyf df
+# translation by dx along the x axis
+# store local variables
+  '_dx' '_di' '_pyi' '_pxi' '_li' '_yi' '_xi'
+# evaluate map
+  _xi _dx -                            # x-final
+  _yi                                  # y-final
+  _li                                  # l-final
+  _pxi                                 # px-final
+  _pyi                                 # py-final
+  _di                                  # d-final
+# delete local variables
+  (_dx,_di,_pyi,_pxi,_li,_yi,_xi)
+:xtran
+
+:fn:
+# map Ty(dy): xi yi li pxi pyi di dy ytran
+#        ===> xf yf lf pxf pyf df
+# translation by dy along the y axis
+# store local variables
+  '_dx' '_di' '_pyi' '_pxi' '_li' '_yi' '_xi'
+# evaluate map
+  _xi                                  # x-final
+  _yi _dy -                            # y-final
+  _li                                  # l-final
+  _pxi                                 # px-final
+  _pyi                                 # py-final
+  _di                                  # d-final
+# delete local variables
+  (_dy,_di,_pyi,_pxi,_li,_yi,_xi)
+:ytran
+
+:fn:
+# map Tz(dz): xi yi li pxi pyi di dz ztran
+#        ===> xf yf lf pxf pyf df
+# translation by dz along the z axis
+# store local variables
+  '_dz' '_di' '_pyi' '_pxi' '_li' '_yi' '_xi'
+# evaluate pz-initial
+  1 _di + sqr _pyi sqr - _pxi sqr - sqrt '_pzi'
+# evaluate map
+  _pxi _pzi / _dz * _xi +              # x-final
+  _pyi _pzi / _dz * _yi +              # y-final
+  1 _di + _pzi / _dz * _li +           # l-final
+  _pxi                                 # px-final
+  _pyi                                 # py-final
+  _di                                  # d-final
+# delete local variables
+  (_dz,_di,_pyi,_pxi,_li,_yi,_xi,_pzi)
+:ztran
+

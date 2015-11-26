@@ -1,0 +1,40 @@
+#
+# User-Defined Functions
+#
+
+:fn: # Pythagorean square: x y ==> x^2 + y^2
+sqr sw sqr +
+:pyth2
+
+:fn: # Pythagorean sum: x y ==> sqrt(x^2 + y^2)
+sqr sw sqr + sqrt
+:pyth
+
+:fn: # relativistic beta: E_o E_k ==> beta
+dup2 pc 3 roll + /
+:beta
+
+:fn: # relativistic gamma : E_o E_k ==> gamma
+2 pick + sw /
+:gamma
+
+:fn: # relativistic beta.gamma: E_o E_k ==> bg
+2 pick sw pc sw /
+:bg
+
+:fn: # relativistic momentum: E_o E_k ==> pc
+dup -3 roll 2 * + * sqrt
+:pc
+
+:fn: # convert degC to degF: degC ==> degF
+1.8 * 32 +
+:degC2F
+
+:fn: # convert degF to degC: degF ==> degC
+32 - 1.8 /
+:degF2C
+
+:fn: # percent change: x1 x2 ==> 100*(x2-x1)/x1
+2 pick - sw / 100 *
+:pctchg
+
