@@ -128,7 +128,6 @@ Nov 2015: wrote an install script, and put up on GitHub, because
 
 Future Work and Feature Requests
 --------------------------------
- * fix typography in the help messages
  * check accuracy of sinc
  * implement cosc (cosine cardinal)
  * check readline support from Term::ReadLine::Perl5

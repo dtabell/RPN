@@ -692,11 +692,11 @@ sub RPNfuncs_ref {
 
 sub RPNhelp { print "
    == RPN Help ==
-  This calculator uses Reverse Polish Notation (RPN).  As an example,
+  This calculator uses Reverse Polish Notation (RPN). As an example,
   the expression 2*(3+4) takes the form
           3 4 + 2 *
-  in RPN.  The essential idea here is that one supplies the operands
-  first, the operator afterwards.   (These elements may be entered on
+  in RPN. The essential idea here is that one supplies the operands
+  first, the operator afterwards. (These elements may be entered on
   one or several lines.)
 
   For information on the various \"buttons\" and features provided by
@@ -762,7 +762,7 @@ sub RPNmath_ref { print "
   binom,bin,choose : binomial coefficient, y choose x (2)
 
   *Shown in parentheses for each \"button\" is the number of arguments
-   (if any) required from the stack.  Also, 'x' refers to the most
+   (if any) required from the stack. Also, 'x' refers to the most
    recent entry in the stack, while 'y' refers to the following stack
    entry.
 
@@ -867,7 +867,7 @@ sub RPNstack_ref { print "
    == Stack Operations ==
   This calculator uses a stack which changes size as needed by the user.
   By convention, the \"last\" element on the stack means the last element
-  placed on the stack.  This element is, of course, also the first
+  placed on the stack. This element is, of course, also the first
   element that will be retrieved from the stack.
 
   del,x     : delete the last entry in the stack (1)
@@ -917,7 +917,7 @@ sub RPNtrig_ref { print "
 
   Note: For the trigonometric functions, angles may be given in units of
   decimal degrees, degrees-minutes-seconds, radians, or gradians.
-  (100 gradians = 90 degrees.)  Use the mode settings, see \"?modes\",
+  (100 gradians = 90 degrees.) Use the mode settings, see \"?modes\",
   to set the desired angular unit; see \"?conv\" for unit conversions.
 
 ";
@@ -926,20 +926,20 @@ sub RPNtrig_ref { print "
 sub RPNuser_ref { print "
    == Defining Functions and Variables ==
   To define a variable, precede the variable name with a single quote,
-  or surround it with a pair of quotes (no spaces).  For example, either
+  or surround it with a pair of quotes (no spaces). For example, either
           1.23 'r
   or
           1.23 'r'
-  will store the value 1.23 in a variable named 'r'.  To use a variable,
-  simply give its name.  Thus
+  will store the value 1.23 in a variable named 'r'. To use a variable,
+  simply give its name. Thus
           r
   will enter its value---here 1.23---onto the stack.
 
   To define a function, precede its definition with \":fn:\", and follow
   its definition with \": fname\", where \"fname\" is the name of the
-  function.  You may end any line with a comment as \"# commnt\".  This
+  function. You may end any line with a comment as \"# commnt\". This
   may be done on one or several lines, but the definition MUST BEGIN ON
-  A NEW LINE.  Thus either
+  A NEW LINE. Thus either
           :fn: sqr pi * :circ  # r circ ==> area
   or
           :fn: # r circ ==> area
@@ -947,12 +947,12 @@ sub RPNuser_ref { print "
   defines a function circ that computes circular areas.
 
   To remove any function or variable, precede its name with a left
-  parenthesis, or surround its name with a pair of parentheses.  Thus,
+  parenthesis, or surround its name with a pair of parentheses. Thus,
   for example, either
           (r
   or
           (r)
-  will delete the variable 'r'.  You can simultaneously remove several
+  will delete the variable 'r'. You can simultaneously remove several
   items by separating their names with commas, no spaces:
           (r,circ
   will delete both 'r' and 'circ'.
@@ -971,8 +971,8 @@ sub RPNuser_ref { print "
   NB: One may begin a function definition by storing stack entries as
   variables, and then end the definition by deleting those variables.
   A useful convention is to give those 'local' variables a name that
-  begins with the underscore '_'.  One may NOT, however, use this
-  aproach to define recursive functions.  At the moment, a recursive
+  begins with the underscore '_'. One may NOT, however, use this
+  aproach to define recursive functions. At the moment, a recursive
   function must rely on the stack alone.
 
 ";
