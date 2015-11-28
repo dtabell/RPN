@@ -128,6 +128,15 @@ while(1){
 #
 # subroutines
 #
+sub agm {  # arithmetic-geometric mean
+  my($a,$b)=@_;
+  my $tol=1.e-15;
+  while(abs($b-$a)>$tol){
+    ($a,$b)=(sqrt($a*$b),0.5*($a+$b));
+  }
+  return($a);
+}
+
 sub angle_unit_to_radian {
   my($ang)=@_;
   if($angle_unit eq "radian"   ){return $ang;}
@@ -424,6 +433,12 @@ sub operation {
   elsif($e eq "logb" ){if(argsQ($e,2)){
                          $x=shift(@stack);
                          $stack[0]=log($x)/log($stack[0]);}}
+  # special functions
+  elsif($e eq "agm"){if(argsQ($e,2)){
+                       $x=shift(@stack); $y=$stack[0];
+                       if($x>=0 && $y>=0){$stack[0]=agm($x,$y);}
+                       else{warn "ERROR: agm($x,$y) undefined.\n";
+                            unshift(@stack,$x);}}}
   # mathematical constants
   elsif($e eq "eul"  ){unshift(@stack,$euler_e);}
   elsif($e eq "pi"   ){unshift(@stack,$pi);}
@@ -771,6 +786,7 @@ sub RPNmath_ref { print "
 
   fact,fct,!       : factorial, x! (1)
   binom,bin,choose : binomial coefficient, y choose x (2)
+  agm              : agm (2), arithmetic-geometric mean
 
   *Shown in parentheses for each \"button\" is the number of arguments
    (if any) required from the stack. Also, 'x' refers to the most
@@ -825,6 +841,7 @@ sub RPNquick_ref { print "
 
   FACT : fact,fct,!
   BINOM: binom,bin,choose
+  AGM:   agm
 
   SIN : sin    ASIN : asin,arcsin     LN   : ln
   COS : cos    ACOS : acos,arccos     EXP  : exp,ex,aln

@@ -113,6 +113,11 @@ twox         alog2
 logb         logb
 
 #
+# special functions
+#
+agm          agm
+
+#
 # mathematical constants
 #
 eul          eul
