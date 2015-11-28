@@ -106,16 +106,19 @@ if($#ARGV>=0){
 # otherwise, run interactively
 RPNbanner();
 
+# initialize Term::ReadLine
 $RPNterm = new Term::ReadLine "RPNcalc";
 #DEBUG: $RLFeatures = $RPNterm->Features();
 #DEBUG: print "key: $_\t\t value: $RLFeatures->{$_}\n" foreach (keys %$RLFeatures);
 #DEBUG: print "ReadLine support: ", $RPNterm->ReadLine,"\n\n";
 $RPNterm->ornaments(0);
 $RPNterm->read_history("$RPN_HISTORY");
+$hasAutoHistory=$RPNterm->ReadLine=~/^Term::ReadLine::Gnu$/;
 
 $RPNlc = 1;  # initialize line counter
 while(1){
   $_ = $RPNterm->readline("rpn:$RPNlc> ");
+  if(!$hasAutoHistory){$RPNterm->add_history($_);}
      if(/^\s*$/ || /^\s*\#/){--$RPNlc;} # ignore blank lines and comment lines
   elsif(/^\s*undo\s*$/){switch_stacks(); print_stack($stack_display);}
   elsif(/^\s*:fn:\s*(.*)/){function_def($1); print_stack($stack_display);}
