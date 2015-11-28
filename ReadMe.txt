@@ -128,23 +128,21 @@ Nov 2015: wrote an install script, and put up on GitHub, because
 
 Future Work and Feature Requests
 --------------------------------
- * check accuracy of sinc
- * implement cosc (cosine cardinal)
  * check readline support from Term::ReadLine::Perl5
  * when reading external files, assume a .rpn extension
- * modify function_def() so that definitions appear in the history
  * implement option -f for reading commands from a file
  * init_* methods should return 0/1, and be acted upon accordingly
- * complex numbers
+ * modify function_def() so that definitions appear in the history
  * control flow logic
  * random number generation
+ * complex numbers
  * use File::Find to find rpn- and user-written files robustly
  * check user-defined quantities against native abbreviations
  * array operations
  * fix the space formatting of the rpn script
- * tolerant comparisons
+ * tolerant comparisons (??)
  * implement tests
- * .rpnrc to implement/save user preferences
+ * rpnrc to implement/save user preferences (?)
 
 
 Author
