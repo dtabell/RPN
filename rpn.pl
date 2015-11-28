@@ -153,6 +153,15 @@ sub binomial {
        return($bin);}
 }
 
+sub cosc {  # double precision (1-cos(x))/x^2
+  my($ang)=@_;
+  my($ang2);
+  if(abs($ang)>=0.500){return((1-cos($ang))/$ang**2);}
+  else{$ang2=$ang*$ang;
+       return(1/2.-$and2^2/24.*(1-$ang2^2/30.*(1-$ang2^2/56.
+              *(1-$ang2^2/90.*(1-$ang2^2/132.*(1-$ang2^2/182.))))));}
+}
+
 sub d2dms {
   my($d)=@_;
   my($deg)=floor($d);
@@ -394,6 +403,8 @@ sub operation {
                          $stack[0]=radian_to_angle_unit(atan2($stack[0],$x));}}
   elsif($e eq "sinc" ){if(argsQ($e,1)){
                          $stack[0]=sinc(angle_unit_to_radian($stack[0]));}}
+  elsif($e eq "cosc" ){if(argsQ($e,1)){
+                         $stack[0]=cosc(angle_unit_to_radian($stack[0]));}}
   # hyperbolic functions
   elsif($e eq "sinh" ){if(argsQ($e,1)){$stack[0]=sinh($stack[0]);}}
   elsif($e eq "cosh" ){if(argsQ($e,1)){$stack[0]=cosh($stack[0]);}}
@@ -822,6 +833,7 @@ sub RPNquick_ref { print "
   SINH: sinh   ASINH: asinh,arcsinh   LG   : lg,log2
   COSH: cosh   ACOSH: acosh,arccosh   ALOG2: alog2,twox
   TANH: tanh   ATANH: atanh,arctanh   LOGB : logb
+  COSC: cosc
 
   E : e   PI: pi   TWOPI: twopi   GR: gr,golden_ratio
 
@@ -914,6 +926,7 @@ sub RPNtrig_ref { print "
   asinh,arcsinh : inverse hyperbolic sine (1)
   acosh,arccosh : inverse hyperbolic cosine (1)
   atanh,arctanh : inverse hyperbolic tangent (1)
+  cosc          : cosc (1), (1 - cos(x)) / x^2
 
   Note: For the trigonometric functions, angles may be given in units of
   decimal degrees, degrees-minutes-seconds, radians, or gradians.
@@ -1021,9 +1034,9 @@ sub rpn_function {
 sub sinc {  # double precision sin(x)/x
   my($ang)=@_;
   my($ang2);
-  if(abs($ang)>=0.008){return(sin($ang)/$ang);}
+  if(abs($ang)>=0.04){return(sin($ang)/$ang);}
   else{$ang2=$ang*$ang;
-       return(1.-$ang2*(1/6.-$ang2*(1/120.-$ang2/5040.)));}
+       return(1.-$ang2/6.*(1-$ang2/20.*(1-$ang2/42.)));}
 }
 
 sub sinumQ {
