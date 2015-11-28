@@ -158,8 +158,8 @@ sub cosc {  # double precision (1-cos(x))/x^2
   my($ang2);
   if(abs($ang)>=0.500){return((1-cos($ang))/$ang**2);}
   else{$ang2=$ang*$ang;
-       return(1/2.-$and2^2/24.*(1-$ang2^2/30.*(1-$ang2^2/56.
-              *(1-$ang2^2/90.*(1-$ang2^2/132.*(1-$ang2^2/182.))))));}
+       return(1/2.-$ang2/24.*(1-$ang2/30.*(1-$ang2/56.
+              *(1-$ang2/90.*(1-$ang2/132.*(1-$ang2/182.))))));}
 }
 
 sub d2dms {
