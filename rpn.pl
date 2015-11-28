@@ -135,8 +135,10 @@ while(1){
 sub agm {  # arithmetic-geometric mean
   my($a,$b)=@_;
   my $tol=1.e-15;
-  while(abs($b-$a)>$tol){
+  my $c=abs($b-$a);
+  until($c<=$tol || $c/$b<=$tol){
     ($a,$b)=(sqrt($a*$b),0.5*($a+$b));
+    $c=$b-$a;
   }
   return($a);
 }
