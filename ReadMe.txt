@@ -18,7 +18,6 @@ interface that includes readline support. If your system has one of
 the various ReadLine implementations (Term::ReadLine::*) installed,
 then the readline support should 'just work'. This has been tested
 with Term::ReadLine::Gnu and Term::ReadLine::Perl5.
-[===>>> DTA: Check this!! <<<===]
 
 The executable command (i.e. the installed script) is 'rpn'.  For
 help, type 'help', '?', or '??' at the RPN prompt.
@@ -97,6 +96,10 @@ Term::ReadLine which one you prefer. For example, add
 
   export PERL_RL='Gnu'
 
+or
+
+  export PERL_RL='Perl5'
+
 to your ~/.bashrc file. In addition, you can set the default mode
 for editing by adding, for example, the line
 
@@ -128,7 +131,6 @@ Nov 2015: wrote an install script, and put up on GitHub, because
 
 Future Work and Feature Requests
 --------------------------------
- * check readline support from Term::ReadLine::Perl5
  * when reading external files, assume a .rpn extension
  * implement option -f for reading commands from a file
  * init_* methods should return 0/1, and be acted upon accordingly

@@ -107,10 +107,11 @@ if($#ARGV>=0){
 RPNbanner();
 
 $RPNterm = new Term::ReadLine "RPNcalc";
+#DEBUG: $RLFeatures = $RPNterm->Features();
+#DEBUG: print "key: $_\t\t value: $RLFeatures->{$_}\n" foreach (keys %$RLFeatures);
+#DEBUG: print "ReadLine support: ", $RPNterm->ReadLine,"\n\n";
 $RPNterm->ornaments(0);
 $RPNterm->read_history("$RPN_HISTORY");
-
-#DEBUG: print "ReadLine support: ", $RPNterm->ReadLine,"\n\n";
 
 $RPNlc = 1;  # initialize line counter
 while(1){
