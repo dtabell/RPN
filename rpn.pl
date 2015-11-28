@@ -18,7 +18,7 @@ $RPN_HISTORY = "$RPN_DIR/rpn_history";
 $MAX_HISTORY = 1000;
 
 # for Perl modules in a local library
-#use local::lib
+#use local::lib;
 
 use POSIX qw(acos asin atan ceil cosh floor
              fmod log10 modf pow sinh tan tanh);
