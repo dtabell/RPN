@@ -132,6 +132,7 @@ Nov 2015: wrote an install script, and put up on GitHub, because
 Future Work and Feature Requests
 --------------------------------
  * when reading external files, assume a .rpn extension
+ * modify option -e to delete the stack index from output
  * implement option -f for reading commands from a file
  * init_* methods should return 0/1, and be acted upon accordingly
  * modify function_def() so that definitions appear in the history
