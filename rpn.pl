@@ -586,7 +586,9 @@ sub operation {
   elsif($e eq "?user" ){RPNuser_ref();}
   elsif($e eq "?funcs"){RPNfuncs_ref();}
   elsif($e eq "?vars" ){RPNvars_ref();}
+  elsif($e eq "?sipre"){RPNsi_ref();}
   elsif($e eq "????"  ){RPNbanner(); RPNhelp(); RPNquick_ref();
+                        RPNsi_ref();
                         RPNmath_ref(); RPNtrig_ref(); RPNexp_ref();
                         RPNconst_ref(); RPNconv_ref();
                         RPNstack_ref(); RPNmode_ref();
@@ -894,6 +896,32 @@ sub RPNquick_ref { print "
   hhh:mm:ss(.sss), hhh:mm, or mm:ss.(sss). Note that RPN automatically
   converts time (or angle) data entered in one of these forms to the
   form hhh.mmsssss (or ddd.mmsssss).
+
+";
+}
+
+sub RPNsi_ref { print "
+   == SI Standard Prefixes ==
+  yotta  Y    1.e+24
+  zetta  Z    1.e+21
+  exa    E    1.e+18
+  peta   P    1.e+15
+  tera   T    1.e+12
+  giga   G    1.e+09
+  mega   M    1.e+06
+  kilo   k,K  1.e+03
+  hecto  h    1.e+02
+  deka   da   1.e+01
+  deci   d    1.e-01
+  centi  c    1.e-02
+  milli  m    1.e-03
+  micro  u    1.e-06
+  nano   n    1.e-09
+  pico   p    1.e-12
+  femto  f    1.e-15
+  atto   a    1.e-18
+  zepto  z    1.e-21
+  yocto  y    1.e-24
 
 ";
 }
