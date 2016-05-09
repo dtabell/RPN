@@ -883,6 +883,7 @@ sub RPNquick_ref { print "
   HELP : help,?   TRG_H: ?trig,?hyp   CNV_H: ?conv    USR_H: ?user
   Q_REF: ??       EXP_H: ?exp,?log    STK_H: ?stack   FNS_H: ?funcs,?fns
   MTH_H: ?math    CNS_H: ?const       MOD_H: ?modes   VAR_H: ?vars
+  SI_H:  ?sipre
 
   READFNS: readfns   CLRFNS: clrfns
   READVAR: readvar   CLRVAR: clrvar

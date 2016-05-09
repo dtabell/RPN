@@ -232,6 +232,7 @@ help         help
 ?user        ?user
 ?fns         ?funcs
 ?vars        ?vars
+?sipre       ?sipre
 
 #
 # end
