@@ -902,27 +902,27 @@ sub RPNquick_ref { print "
 }
 
 sub RPNsi_ref { print "
-   == SI Standard Prefixes ==
-  yotta  Y    1.e+24
-  zetta  Z    1.e+21
-  exa    E    1.e+18
-  peta   P    1.e+15
-  tera   T    1.e+12
-  giga   G    1.e+09
-  mega   M    1.e+06
-  kilo   k,K  1.e+03
-  hecto  h    1.e+02
-  deka   da   1.e+01
-  deci   d    1.e-01
-  centi  c    1.e-02
-  milli  m    1.e-03
-  micro  u    1.e-06
-  nano   n    1.e-09
-  pico   p    1.e-12
-  femto  f    1.e-15
-  atto   a    1.e-18
-  zepto  z    1.e-21
-  yocto  y    1.e-24
+   == SI Metric Prefixes (log10) ==
+  yotta  Y     24
+  zetta  Z     21
+  exa    E     18
+  peta   P     15
+  tera   T     12
+  giga   G      9
+  mega   M      6
+  kilo   k,K    3
+  hecto  h      2
+  deka   da     1
+  deci   d     -1
+  centi  c     -2
+  milli  m     -3
+  micro  u     -6
+  nano   n     -9
+  pico   p    -12
+  femto  f    -15
+  atto   a    -18
+  zepto  z    -21
+  yocto  y    -24
 
 ";
 }
