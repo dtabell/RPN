@@ -7,8 +7,8 @@ Description
 
 Yet another RPN calculator ...
 
-This project defines a stack-based RPN (reverse Polish notation)
-calculator. It defines various mathematical and physical constants
+This project defines an RPN (reverse Polish notation) calculator.
+It includes various pre-defined mathematical and physical constants
 and functions, and it includes a simple facility for defining your
 own constants and functions. It also allows you to load your own
 definitions from external files.
