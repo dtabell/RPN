@@ -109,16 +109,19 @@ RPNbanner();
 # initialize Term::ReadLine
 $RPNterm = new Term::ReadLine "RPNcalc";
 #DEBUG: $RLFeatures = $RPNterm->Features();
-#DEBUG: print "key: $_\t\t value: $RLFeatures->{$_}\n" foreach (keys %$RLFeatures);
-#DEBUG: print "ReadLine support: ", $RPNterm->ReadLine,"\n\n";
+#DEBUG: print "ReadLine support: ", $RPNterm->ReadLine,"\n";
+#DEBUG: print "Features:\n";
+#DEBUG: print "  key: $_\t\t value: $RLFeatures->{$_}\n" foreach (sort keys %$RLFeatures);
+#DEBUG: print "\n";
 $RPNterm->ornaments(0);
-$RPNterm->read_history("$RPN_HISTORY");
+$hasReadLine=$RPNterm->ReadLine!~/^Term::ReadLine::Stub$/;
 $hasAutoHistory=$RPNterm->ReadLine=~/^Term::ReadLine::Gnu$/;
+if($hasReadLine){$RPNterm->read_history("$RPN_HISTORY");}
 
 $RPNlc = 1;  # initialize line counter
 while(1){
   $_ = $RPNterm->readline("rpn:$RPNlc> ");
-  if(!$hasAutoHistory){$RPNterm->add_history($_);}
+  if($hasReadLine && !$hasAutoHistory){$RPNterm->add_history($_);}
      if(/^\s*$/ || /^\s*\#/){--$RPNlc;} # ignore blank lines and comment lines
   elsif(/^\s*undo\s*$/){switch_stacks(); print_stack($stack_display);}
   elsif(/^\s*:fn:\s*(.*)/){function_def($1); print_stack($stack_display);}
@@ -595,8 +598,9 @@ sub operation {
                         RPNuser_ref(); RPNfuncs_ref(); RPNvars_ref();
                         RPNmodes();}
   # end
-  elsif($e eq "end"){$RPNterm->stifle_history($MAX_HISTORY);
-                     $RPNterm->write_history("$RPN_HISTORY");
+  elsif($e eq "end"){if($hasReadLine){
+                       $RPNterm->stifle_history($MAX_HISTORY);
+                       $RPNterm->write_history("$RPN_HISTORY");}
                      exit;}
   # not defined
   else{print "Sorry, \"$e\" not yet implemented.\n";}
