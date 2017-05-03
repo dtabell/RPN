@@ -56,6 +56,9 @@ perl run the version of cpanm we just downloaded. Perl passes the
 remaining arguments to cpanm. The -l ~/perl5 argument tells cpanm
 where to install Perl modules, and the remaining argument is the
 module to install. App::cpanminus is a package that installs cpanm.
+Here, and in what follows, replace ~/perl5 with, say, ~/apps/perl5,
+or whatever other name you wish to use for the directory in which
+to store your local perl modules.
 
   export PATH=~/perl5/bin:$PATH
 
@@ -70,11 +73,11 @@ the environment variables needed to run Perl modules installed in
 a local directory. The --force flag forces installation even if
 some tests fail. (In my case one test, of many, failed.)
 
-  eval `perl -I ~/perl5/lib/perl5 -Mlocal::lib`
+  eval `perl -I ~/perl5/lib/perl5 -Mlocal::lib=~/perl5`
 
 This command sets environment variables needed to use local modules.
 
-  echo 'eval `perl -I ~/perl5/lib/perl5 -Mlocal::lib`' >> ~/.bashrc
+  echo 'eval `perl -I ~/perl5/lib/perl5 -Mlocal::lib=~/perl5`' >> ~/.bashrc
 
 This command repeats the previous one, but appends the output to
 ~/.bashrc, to ensure that those environment variables are defined
