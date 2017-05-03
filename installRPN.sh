@@ -37,18 +37,19 @@ function echo_red() {
 
 ## usage message
 usage=
-usage=$usage$'usage: install.sh [-DhHL] [-b bindir] [-l rpndir]'
+usage=$usage$'usage: installRPN.sh [-DhH] [-b bindir] [-l rpndir] [-L pmdir]'
 usageF=$usage$'\n\n'
 usageF=$usageF$'   -b bindir    specify location for the binary [$HOME/bin]\n'
 usageF=$usageF$'   -D           install a debug version\n'
 usageF=$usageF$'   -h           output a brief help message\n'
 usageF=$usageF$'   -H           output this longer help message\n'
 usageF=$usageF$'   -l rpndir    specify location for RPN libraries [$HOME/.rpn]\n'
-usageF=$usageF$'   -L           use local::lib to access local Perl modules'
+usageF=$usageF$'   -L pmdir     use local::lib to access local Perl modules in pmdir'
 
 ## set default values
 bindir="${HOME}/bin"
 rpndir="${HOME}/.rpn"
+pmdir="${HOME}/perl5"
 debugVersion="false"
 useLocalLib="false"
 
@@ -64,14 +65,14 @@ libfiles='
 '
 
 ## parse options
-while getopts "b:DhHl:L" opt; do
+while getopts "b:DhHl:L:" opt; do
   case $opt in
   b) bindir="$OPTARG" ;;
   D) debugVersion="true" ;;
   h) echo "$usage" ; exit 0 ;;
   H) echo "$usageF" ; exit 0 ;;
   l) rpndir="$OPTARG" ;;
-  L) useLocalLib="true" ;;
+  L) useLocalLib="true" ; pmdir="$OPTARG" ;;
   \?) echo "$usage" ; exit 1 ;;
   esac
 done
@@ -114,6 +115,15 @@ else
   fi
 fi
 
+## if requested, check that $pmdir exists
+if [ "$useLocalLib" == "true" ] ; then
+  if [ ! -d "$pmdir" ] ; then
+    echo_red "I can't access local Perl modules in ${pmdir}!"
+    echo_red "Sorry: ${textUL}${pmdir}${textUX} is not a directory."
+    exit 1
+  fi
+fi
+
 ## ensure $basedir exists
 basedir="$rpndir/base"
 if [ ! -e "$basedir" ] ; then
@@ -149,7 +159,7 @@ fi
 ## if needed perl modules are installed locally, use local::lib
 ## (e.g. Term::ReadLine::*)
 if [ "$useLocalLib" == "true" ] ; then
-  sed -i -e 's/^#use local::lib$/use local::lib/' rpn
+  sed -i -e "s.^#use local::lib;$.use local::lib '$pmdir';." rpn
 fi
 chmod 755 rpn
 
