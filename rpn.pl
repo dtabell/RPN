@@ -173,11 +173,7 @@ sub binomial {
 
 sub cosc {  # double precision (1-cos(x))/x^2
   my($ang)=@_;
-  my($ang2);
-  if(abs($ang)>=0.500){return((1-cos($ang))/$ang**2);}
-  else{$ang2=$ang*$ang;
-       return(1/2.-$ang2/24.*(1-$ang2/30.*(1-$ang2/56.
-              *(1-$ang2/90.*(1-$ang2/132.*(1-$ang2/182.))))));}
+  return(0.5*(sinc(0.5*$ang)**2));
 }
 
 sub d2dms {
