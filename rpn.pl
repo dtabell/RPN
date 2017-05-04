@@ -1089,10 +1089,8 @@ sub rpn_function {
 
 sub sinc {  # double precision sin(x)/x
   my($ang)=@_;
-  my($ang2);
-  if(abs($ang)>=0.04){return(sin($ang)/$ang);}
-  else{$ang2=$ang*$ang;
-       return(1.-$ang2/6.*(1-$ang2/20.*(1-$ang2/42.)));}
+  if(abs($ang)>=2.e-8){return(sin($ang)/$ang);}
+  else{return(1.);}
 }
 
 sub sinumQ {
