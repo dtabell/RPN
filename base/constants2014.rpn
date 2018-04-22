@@ -131,6 +131,12 @@ proton_restE          938.2720813e6              # (58) eV
 
 ## Physico-chemical
 
+atomic_mass_const     1.660539040e-27            # (20) kg
+  amu                                            # atomic mass constant /kg
+
+atomic_mass_energy    931.4940954e6              # (57) eV
+  amuev                                          # atomic mass energy /eV
+
 avogadro_number       6.022140857e23             # (74) mol^-1
   n_a avogadro                                   # Avogadro constant /mol^-1
 
