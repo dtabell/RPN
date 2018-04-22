@@ -20,8 +20,8 @@ $MAX_HISTORY = 1000;
 # for Perl modules in a local library
 #use local::lib;
 
-use POSIX qw(acos asin atan ceil cosh floor
-             fmod log10 modf pow sinh tan tanh);
+use POSIX qw(acos asin atan ceil cosh floor fmod
+             hypot log10 modf pow sinh tan tanh);
 use Text::Wrap;
 use Term::ReadLine;
 
@@ -341,9 +341,9 @@ sub operation {
   elsif($e eq "++" ){if(argsQ($e,1)){$stack[0]++;}}
   elsif($e eq "--" ){if(argsQ($e,1)){$stack[0]--;}}
   elsif($e eq "+++"){if(argsQ($e,2)){$x=shift(@stack); $y=$stack[0];
-                                     $stack[0]=sqrt($y*$y+$x*$x);}}
+                                     $stack[0]=hypot($y,$x);}}
   elsif($e eq "+-+"){if(argsQ($e,2)){$x=shift(@stack); $y=$stack[0];
-                       if(abs($y)>=abs($x)){$stack[0]=sqrt($y*$y-$x*$x);}
+                       if(abs($y)>=abs($x)){$stack[0]=pyleg($y,$x);}
                        else{warn "ERROR: can't form pythagorean diffence $y +-+ $x.\n";
                             unshift(@stack,$x);}}}
   elsif($e eq "tm+"){if(argsQ($e,2)){$x=shift(@stack); $y=$stack[0];
@@ -648,6 +648,12 @@ sub print_std {
   my($x)=@_;
   my($pp)=($print_precision);
   printf("% *.*g", 9+$pp,$pp,$x);
+}
+
+sub pyleg {  # Pythagorean subtraction
+  my($y,$x)=@_;
+  my $r=$x/$y;
+  return(abs($y)*sqrt((1-$r)*(1+$r)));}
 }
 
 sub radian_to_angle_unit{
