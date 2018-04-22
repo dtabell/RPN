@@ -121,7 +121,7 @@ physical constants (e.g. e, pi, c, etc.) as well as the ability
 to define simple 'programs'.
 
 Feb 2001: original code
-Sep 2008: inverse hyperbolc functions
+Sep 2008: inverse hyperbolic functions
 Mar 2011: readline support
 May 2011: parse times (angles) from hh::mm:ss.sss to (h/d).ms form,
           and add and subtract times (angles) in (h/d).ms form
@@ -130,6 +130,7 @@ Nov 2015: history is now saved between sessions
 Nov 2015: wrote an install script, and put up on GitHub, because
           I grew tired of the "tar, scp, untar, and mv" sequence
           every time I introduced a new feature
+Apr 2018: improve Pythagorean addition and subtraction
 
 
 Future Work and Feature Requests
