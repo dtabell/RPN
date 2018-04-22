@@ -21,7 +21,7 @@ $MAX_HISTORY = 1000;
 #use local::lib;
 
 use POSIX qw(acos asin atan ceil cosh floor fmod
-             hypot log10 modf pow sinh tan tanh);
+             log10 modf pow sinh tan tanh);
 use Text::Wrap;
 use Term::ReadLine;
 
@@ -75,6 +75,7 @@ $print_precision=6;
 $stack_display=6;
 $precision_max=50;
 $display_max=500;
+$machine_eps=2.220446e-16; # assuming a 64-bit machine
 
 $deg_per_rad  = 57.2957795130823208768;
 $euler_e      =  2.71828182845904523536;
@@ -232,6 +233,32 @@ sub get_name {
   return($name);
 }
 
+## Cleve Moler and Donald Morrison
+## Replacing square roots by Pythagorean sums
+## IBM J. Res. Develop. 27(6):577--581
+## Nov. 1983
+#sub hypot {  # Pythagorean addition
+#  my($x,$y)=@_;
+#  my($ax,$ay)=(abs($x),abs($y));
+#  if($ay>$ax){($ax,$ay)=($ay,$ax);}
+#  my($r,$s);
+#  while($ay>$machine_eps){
+#    $r=($ay/$ax)**2;
+#    $s=$r/(4+$r);
+#    $ax=$ax+2*$s*$ax;
+#    $ay*=$s;
+#  }
+#  return($ax);
+#}
+#
+sub hypot {  # Pythagorean addition
+  my($x,$y)=@_;
+  my($ax,$ay)=(abs($x),abs($y));
+  if($ay>$ax){($ax,$ay)=($ay,$ax);}
+  my $r=$ay/$ax;
+  return($ax*sqrt(1+$r**2));
+}
+
 sub init_constants {
   my($constfile)=@_;
   my($cname,$cval,@abbrevs)=();
@@ -341,7 +368,7 @@ sub operation {
   elsif($e eq "++" ){if(argsQ($e,1)){$stack[0]++;}}
   elsif($e eq "--" ){if(argsQ($e,1)){$stack[0]--;}}
   elsif($e eq "+++"){if(argsQ($e,2)){$x=shift(@stack); $y=$stack[0];
-                                     $stack[0]=hypot($y,$x);}}
+                                     $stack[0]=hypot($x,$y);}}
   elsif($e eq "+-+"){if(argsQ($e,2)){$x=shift(@stack); $y=$stack[0];
                        if(abs($y)>=abs($x)){$stack[0]=pyleg($y,$x);}
                        else{warn "ERROR: can't form pythagorean diffence $y +-+ $x.\n";
