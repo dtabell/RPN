@@ -154,12 +154,12 @@ fi
 sed -e "s:BINDIR:$bindir:" -e "s:RPNDIR:$rpndir:" < rpn.pl > rpn
 ## if installing a debug version
 if [ "$debugVersion" == "true" ] ; then
-  sed -i -e 's/^#DEBUG: //' rpn
+  sed -i .bak -e 's/^#DEBUG: //' rpn
 fi
 ## if needed perl modules are installed locally, use local::lib
 ## (e.g. Term::ReadLine::*)
 if [ "$useLocalLib" == "true" ] ; then
-  sed -i -e "s.^#use local::lib;$.use local::lib '$pmdir';." rpn
+  sed -i .bak -e "s.^#use local::lib;$.use local::lib '$pmdir';." rpn
 fi
 chmod 755 rpn
 
