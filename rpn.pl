@@ -680,7 +680,7 @@ sub print_std {
 sub pyleg {  # Pythagorean subtraction
   my($y,$x)=@_;
   my $r=$x/$y;
-  return(abs($y)*sqrt((1-$r)*(1+$r)));}
+  return(abs($y)*sqrt((1-$r)*(1+$r)));
 }
 
 sub radian_to_angle_unit{
